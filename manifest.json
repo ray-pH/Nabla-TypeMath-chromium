@@ -1,0 +1,17 @@
+
+{
+  "manifest_version": 2,
+
+  "name": "Nabla TypeMath",
+  "description": "TODO: desc",
+  "version": "1.0",
+  "content_scripts": [
+  {
+    "matches": [
+      "https://web.whatsapp.com/*", "http://web.whatsapp.com/*",
+      "file:///home/ray/Code/ray-pH.github.io/mathjax/index.html"
+    ],
+    "js": ["jquery-3.5.1.min.js", "stringConverter.js", "content.js"]
+  }
+  ]
+} 
