@@ -12,7 +12,12 @@
       "https://web.whatsapp.com/*", "http://web.whatsapp.com/*",
       "file:///home/ray/Code/ray-pH.github.io/mathjax/index.html"
     ],
-    "js": ["./typeMathService/symbolMaps.js", "./typeMathService/stringConverter.js", "content.js"]
+    "js": [
+        "./typeMathService/symbolMaps.js", 
+        "./typeMathService/symbolLatexMaps.js", 
+        "./typeMathService/stringConverter.js", 
+        "content.js"
+    ]
   }
   ],
   "permissions":[
