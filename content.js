@@ -31,8 +31,6 @@ function oneTime(textArea){
     // console.log(valid);
     if(valid){
         let toConvertStr = headStr;
-        console.log('from oneTime');
-        console.log(keepSpace);
         let converted    = evalString(headStr, initStr, endStr,
             useAdditionalSym, useDiacritics, latexMode, keepSpace
         );

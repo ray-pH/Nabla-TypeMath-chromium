@@ -50,10 +50,6 @@ function addSpaceToOperator(str){
 }
 
 function evalMath(str, useAdditionalSym, useDiacritics, latexMode, keepSpace){
-
-    console.log('from evalMath');
-    console.log(keepSpace);
-
     let evaluatedString = "";
     let keys = str.split(" ");
     for(key of keys){
@@ -72,9 +68,6 @@ function evalMath(str, useAdditionalSym, useDiacritics, latexMode, keepSpace){
 function evalString(str, initStr, endStr, 
     useAdditionalSym, useDiacritics, latexMode, keepSpace)
 {
-    console.log('from evalString');
-    console.log(keepSpace);
-
     let noEndStr = str.substring(0, str.length - endStr.length);
     let id = noEndStr.lastIndexOf(initStr);
     if(id < 0) return str;
