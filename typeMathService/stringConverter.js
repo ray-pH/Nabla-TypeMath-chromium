@@ -34,6 +34,7 @@ function evalMath(str, useAdditionalSym, useDiacritics, latexMode, keepSpace){
         res = replaceSuperscript(res);
         res = replaceSubscript(res);
         res = simpleMap.has(res) ? simpleMap.get(res) : res;
+        if(!keepSpace) res = addSpaceToOperator(res);
         evaluatedString += res;
     }
     return evaluatedString;
@@ -50,6 +51,24 @@ function isValidFormat(str, initStr, endStr){
     // iniStr
     let noEndStr = str.substring(0,str.length-endStr.length);
     return noEndStr.lastIndexOf(initStr) != -1;
+}
+
+private fun addSpaceToOperator(str: String): String {
+    return when (str) {
+        "+" -> " + "
+        "-" -> " - "
+        "=" -> " = "
+        ""  -> " "
+        else -> str
+    }
+}
+
+function addSpaceToOperator(str){
+    if (str == '+') return " + ";
+    if (str == '-') return " - ";
+    if (str == '=') return " = ";
+    if (str == '' ) return " ";
+    return str;
 }
 
 function evalString(str, initStr, endStr, 
