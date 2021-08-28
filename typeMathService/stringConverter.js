@@ -93,5 +93,5 @@ function evalString(str, initStr, endStr,
 // isValidFormat(str: String, initStr: String, endStr: String): Boolean {
 // addSpaceToOperator(str: String): String {
 // TODO: evalFraction(str: String): String {
-// TODO: evalMath(str: String,
+// TODO: (partial) evalMath(str: String,
 // evalString(str: String, initStr: String, endStr: String,
