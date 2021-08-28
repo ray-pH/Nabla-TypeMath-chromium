@@ -30,15 +30,16 @@ function oneTime(textArea){
     let valid = isValidFormat(headStr, initStr, endStr);
     // console.log(valid);
     if(valid){
-        let toConvertStr = headStr;
-        let converted    = evalString(headStr, initStr, endStr,
+        let noEndStr = headStr.substring(0, headStr.length - endStr.length);
+        let id = noEndStr.lastIndexOf(initStr);
+        let validString = noEndStr.substring(id + initStr.length);
+        let converted    = evalMath(validString,
             useAdditionalSym, useDiacritics, latexMode, keepSpace
         );
-        let newCursorPos = cursorPos + (converted.length - toConvertStr.length)
 
-        textArea.value   = converted + tailStr;
-        textArea.selectioStart = newCursorPos;
-        textArea.selectionEnd  = newCursorPos;
+        textArea.selectionStart = id;
+        textArea.selectionEnd = cursorPos;
+        document.execCommand('insertText', false, converted);
     }
 }
 
