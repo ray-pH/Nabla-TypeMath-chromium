@@ -1,21 +1,5 @@
-function oneTime(textArea){
-    let useAdditionalSym = false;
-    let useDiacritics    = true;
-    let latexMode        = false;
-    let keepSpace        = false;
-
-    chrome.storage.sync.get({
-        useAdditionalSym : false,
-        useDiacritics    : true,
-        latexMode        : false,
-        keepSpace        : false
-    }, function(items) {
-        useAdditionalSym = items.useAdditionalSym;
-        useDiacritics    = items.useDiacritics   ;
-        latexMode        = items.latexMode       ;
-        keepSpace        = items.keepSpace       ;
-    });
-
+function oneTime(textArea, useAdditionalSym, useDiacritics, latexMode, keepSpace){
+    console.log(useAdditionalSym);
 
     let cursorPos = textArea.selectionEnd;
     // console.log(cursorPos);
@@ -43,11 +27,27 @@ function oneTime(textArea){
     }
 }
 
+function preOneTime(textArea){
+    chrome.storage.sync.get({
+        useAdditionalSym : false,
+        useDiacritics    : true,
+        latexMode        : false,
+        keepSpace        : false
+    }, function(items) {
+        console.log(items);
+        oneTime(textArea, 
+            items.useAdditionalSym, 
+            items.useDiacritics, 
+            items.latexMode, 
+            items.keepSpace)
+    });
+}
+
 function invokeNabla(textArea){
     // TODO: One key mode, Listener;
     // for  now, one key mode
     // console.log(textArea.value);
-    oneTime(textArea);
+    preOneTime(textArea);
 }
 
 document.addEventListener('keydown', function(event) {
